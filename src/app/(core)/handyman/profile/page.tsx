@@ -50,7 +50,7 @@ const Profile: NextPage = () => {
               />
             </div>
             <div>
-              <h1 className="text-2xl font-bold">احمد عادل</h1>
+              <h1 className="text-2xl font-bold">محمد عادل</h1>
               <div className="flex items-center text-gray-300 mt-1">
                 <FaMapMarkerAlt className="mr-1" />
                 <span>نجار • الجيزة، الهرم، سهل حمزة</span>
