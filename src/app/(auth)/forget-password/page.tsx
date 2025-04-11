@@ -4,11 +4,12 @@ import Head from "next/head";
 import Image from "next/image";
 import { FaEnvelope } from "react-icons/fa";
 import Link from "next/link";
-import Router from "next/router";
+import {useRouter} from "next/navigation";
 import forgetPassword from "@/assets/Forgot password.svg";
 const ForgotPassword: React.FC = () => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const Router=useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
