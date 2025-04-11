@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/* Additional RTL support if needed */
+html {
+  direction: rtl;
+}
