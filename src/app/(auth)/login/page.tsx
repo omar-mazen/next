@@ -57,7 +57,9 @@ const Page = () => {
             >
               تسجيل الدخول
             </button>
-
+            <div className="flex justify-center">
+           <span >نسيت كلمة المرور؟ </span> &nbsp; <Link className="text-red-500 border-b-[1px] border-red-500 pb-1 " href="/forget-password">  تغيير كلمة المرور</Link>
+          </div>
             <div className="relative flex items-center justify-center text-gray-400 my-4">
               <div className="flex-grow border-t border-gray-700"></div>
               <span className="flex-shrink mx-4">أو</span>

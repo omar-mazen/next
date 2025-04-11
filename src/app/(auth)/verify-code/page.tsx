@@ -3,13 +3,14 @@ import React, { useState, useRef } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import Router from "next/router";
+import {useRouter} from "next/navigation";
 import forgetPassword from "@/assets/Forgot password.svg";
 
 const VerifyCode: React.FC = () => {
-  const [pins, setPins] = useState<string[]>(Array(4).fill(""));
+  const [pins, setPins] = useState<string[]>(['', '', '', '']);
   const [isVerifying, setIsVerifying] = useState(false);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+  let Router=useRouter()
 
   const handlePinChange = (index: number, value: string) => {
     // Allow only numbers
@@ -21,7 +22,7 @@ const VerifyCode: React.FC = () => {
 
     // Auto focus on next input
     if (value && index < 3 && inputRefs.current[index + 1]) {
-      inputRefs.current[index + 1].focus();
+      inputRefs.current[index + 1]?.focus();
     }
   };
 
@@ -36,7 +37,7 @@ const VerifyCode: React.FC = () => {
       index > 0 &&
       inputRefs.current[index - 1]
     ) {
-      inputRefs.current[index - 1].focus();
+      inputRefs.current[index - 1]?.focus();
     }
   };
 
@@ -59,7 +60,7 @@ const VerifyCode: React.FC = () => {
 
       // Focus on appropriate input after paste
       if (digits.length < 4 && inputRefs.current[digits.length]) {
-        inputRefs.current[digits.length].focus();
+        inputRefs.current[digits.length]?.focus();
       }
     }
   };
@@ -133,7 +134,9 @@ const VerifyCode: React.FC = () => {
                 {[0, 1, 2, 3].map((index) => (
                   <input
                     key={index}
-                    ref={(el) => (inputRefs.current[index] = el)}
+                    ref={(el) => {
+                      if (el) inputRefs.current[index] = el;
+                    }}
                     type="text"
                     maxLength={1}
                     className="w-16 h-16 text-center text-xl font-bold bg-gray-800 rounded"
