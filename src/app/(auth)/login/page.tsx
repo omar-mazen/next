@@ -3,14 +3,15 @@ import Image from "next/image";
 import { FaGoogle, FaFacebook, FaUser, FaLock } from "react-icons/fa";
 import illustration from "./login-illustration.svg";
 import Link from "next/link";
-import workerIcon from "@/assets/icons/worker.svg";
-import clientIcon from "@/assets/icons/client.svg";
-import check from "@/assets/icons/check.svg";
+import facebookIcon from "../../../assets/facebook.svg"
+import googleIcon from "../../../assets/icons8-google.svg"
+
+
 
 const Page = () => {
   const userTypeString: "handyman" | "client" = "client";
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center p-4">
+    <div className="min-h-screen bg-primary-color text-text-color flex items-center justify-center p-4">
       <Head>
         <title>Login Page</title>
         <meta name="description" content="Login page" />
@@ -19,7 +20,7 @@ const Page = () => {
 
       <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="w-full md:w-1/2 max-w-md">
-          <h2 className="text-2xl font-bold text-right mb-6">تسجيل الدخول</h2>
+          <h2 className="text-2xl font-bold text-right mb-6 justify-center ">تسجيل الدخول</h2>
 
           <form className="space-y-4">
             <div className="relative">
@@ -76,18 +77,20 @@ const Page = () => {
 
             <button
               type="button"
-              className="w-full flex items-center justify-center gap-2 bg-transparent border border-gray-700 text-white py-3 rounded-lg font-bold transition-colors"
+              className="w-full flex items-center justify-evenly bg-transparent border border-gray-700 text-white py-3 rounded-4xl font-bold transition-colors"
             >
-              <FaGoogle />
+             
               <span>تسجيل الدخول باستخدام حساب Google</span>
+              <Image src={googleIcon} width={40} alt="google icno"/>
             </button>
 
             <button
               type="button"
-              className="w-full flex items-center justify-center gap-2 bg-transparent border border-gray-700 text-white py-3 rounded-lg font-bold transition-colors"
+              className="w-full flex items-center justify-evenly bg-transparent border border-gray-700 text-white py-3 rounded-4xl font-bold transition-colors"
             >
-              <FaFacebook />
+              
               <span>تسجيل الدخول باستخدام حساب Facebook</span>
+              <Image src={facebookIcon} width={40} alt="facebook icon"/>
             </button>
 
             <div className="text-center mt-6">
