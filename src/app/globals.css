@@ -1,6 +1,43 @@
 @import "tailwindcss";
 
+@theme {
+}
 /* Additional RTL support if needed */
 html {
   direction: rtl;
 }
+.line-loader {
+  width: 100%;
+  min-width: 200px;
+  height: 3px;
+  position: relative;
+  overflow: hidden;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+
+.line-loader:before {
+  content: "";
+  position: absolute;
+  left: -50%;
+  height: 3px;
+  width: 40%;
+  background-color: rgba(var(--primary-color));
+  -webkit-animation: lineAnim 1s linear infinite;
+  -moz-animation: lineAnim 1s linear infinite;
+  animation: lineAnim 1s linear infinite;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+/* 
+ "text-color": "rgba(var(--text-color))",
+  "secondary-text": "rgba(var(--secondary-text))",
+  gray: "rgba(var(--gray))",
+  "primary-color": "rgba(var(--primary-color))",
+  "primary-background": "rgba(var(--primary-background))",
+  "secondary-background": "rgba(var(--secondary-background))",
+  "warning-color": "rgba(var(--warning-color))",
+  "success-color": "rgba(var(--success-color))",
+*/
