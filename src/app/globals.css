@@ -23,14 +23,9 @@
   --large-text: 1.125rem; /* 18px */
 }
 
+@theme {
+}
 /* Additional RTL support if needed */
 html {
   direction: rtl;
-}
-
-/* Add any global styles here */
-body {
-  background-color: rgb(var(--primary-background));
-  color: rgb(var(--text-color));
-  font-family: 'Inter', sans-serif;
 }

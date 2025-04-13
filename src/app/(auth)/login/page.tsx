@@ -7,7 +7,9 @@ import facebookIcon from "../../../assets/facebook.svg"
 import googleIcon from "../../../assets/icons8-google.svg"
 
 
+
 const Page = () => {
+  const userTypeString: "handyman" | "client" = "client";
   return (
     <div className="min-h-screen bg-primary-color text-text-color flex items-center justify-center p-4">
       <Head>
@@ -22,12 +24,12 @@ const Page = () => {
 
           <form className="space-y-4">
             <div className="relative">
+              <FaUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="email"
                 className="w-full bg-gray-800 rounded-lg p-4 pr-10 text-right"
                 placeholder="البريد الإلكتروني"
               />
-              <FaUser className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
             </div>
 
             <div className="relative">
@@ -39,20 +41,17 @@ const Page = () => {
               <FaLock className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
             </div>
 
-            <div className="flex justify-between items-center gap-6 mt-4">
-              <label className="flex items-center gap-2 cursor-pointer grow">
-                <input type="radio" name="userType" className="form-radio" />
-                <span>عميل</span>
-              </label>
-              <label className="flex items-center gap-2 cursor-pointer grow">
-                <input
-                  type="radio"
-                  name="userType"
-                  defaultChecked
-                  className="form-radio"
-                />
-                <span>حرفي</span>
-              </label>
+            <div className="mb-8 flex w-full items-center justify-around gap-8">
+              <UserType
+                icon={workerIcon}
+                isActive={userTypeString == "client"}
+                text={"حرفي"}
+              />
+              <UserType
+                icon={clientIcon}
+                isActive={userTypeString != "client"}
+                text={"عميل"}
+              />
             </div>
 
             <button
@@ -62,8 +61,14 @@ const Page = () => {
               تسجيل الدخول
             </button>
             <div className="flex justify-center">
-           <span >نسيت كلمة المرور؟ </span> &nbsp; <Link className="text-red-500 border-b-[1px] border-red-500 pb-1 " href="/forget-password">  تغيير كلمة المرور</Link>
-          </div>
+              <span>نسيت كلمة المرور؟ </span> &nbsp;
+              <Link
+                className="text-red-500 border-b-[1px] border-red-500 pb-1 "
+                href="/forget-password"
+              >
+                تغيير كلمة المرور
+              </Link>
+            </div>
             <div className="relative flex items-center justify-center text-gray-400 my-4">
               <div className="flex-grow border-t border-gray-700"></div>
               <span className="flex-shrink mx-4">أو</span>
@@ -113,3 +118,25 @@ const Page = () => {
 };
 
 export default Page;
+
+const UserType = ({ icon, isActive, text }) => {
+  return (
+    <div
+      className={`relative flex flex-1 cursor-pointer items-center justify-evenly rounded-lg border p-4 hover:backdrop-brightness-150 hover:transition-all hover:duration-200  hover:ease-in-out ${
+        isActive
+          ? "border-primary-color/20 bg-primary-color/50"
+          : "border-text-color/5 bg-text-color/10"
+      }`}
+    >
+      <Image src={icon} height={40} alt="icon" />
+      <span
+        className={`${
+          isActive ? "" : " hidden"
+        } absolute bottom-0 left-0 translate-x-[-50%] translate-y-[50%] rounded-full bg-white text-primary-color`}
+      >
+        <Image src={check} alt="check icon" width={15} height={15} />
+      </span>
+      <p className="text-center text-large font-semibold">{text}</p>
+    </div>
+  );
+};
