@@ -1,9 +1,8 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-
 @layer components {
-  .container {
+  .custom-container {
     @apply px-10 sm:px-20 md:px-28 lg:px-48;
   }
 }
@@ -25,41 +24,36 @@
   --typography-small-text: clamp(11px, 2vw, 14px);
   --typography-medium-text: clamp(5px, 2.5vw, 16px);
   --typography-large-text: clamp(16px, 3vw, 18px);
-
-  
 }
 @layer base {
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
-     margin: 0;
+    margin: 0;
   }
   .dark {
-   --color-text-color: rgb(246, 246, 246);
-   --color-secondary-text: rgb(245, 245, 245);
-   --color-gray: rgb(163, 163, 163);
-   --color-primary-color: rgb(239, 54, 81);
-   --color-primary-background: rgb(30, 31, 40);
-   --color-secondary-background: rgb(42, 44, 54);
-   --color-warning-color: rgb(180, 20, 20);
-   --color-success-color: rgb(70, 180, 50);
+    --color-text-color: rgb(246, 246, 246);
+    --color-secondary-text: rgb(245, 245, 245);
+    --color-gray: rgb(163, 163, 163);
+    --color-primary-color: rgb(239, 54, 81);
+    --color-primary-background: rgb(30, 31, 40);
+    --color-secondary-background: rgb(42, 44, 54);
+    --color-warning-color: rgb(180, 20, 20);
+    --color-success-color: rgb(70, 180, 50);
   }
 }
 
- h1 {
+h1 {
   font-size: var(--typography-heading1);
- 
 }
 
 h2 {
   font-size: var(--typography-heading2);
- 
 }
 
 h3 {
   font-size: var(--typography-heading3);
-  
-} 
+}
 .text-xsmall {
   font-size: var(--typography-xsmall-text);
 }
@@ -75,7 +69,6 @@ h3 {
 .text-large {
   font-size: var(--typography-large-text);
 }
-
 
 html {
   direction: rtl;
@@ -142,12 +135,37 @@ img:after {
   background-color: var(--color-gray);
   border-radius: 5px;
 }
-.rdp-day_selected,
+.rdp-root {
+  --rdp-accent-color: var(
+    --text-color
+  ); /* Text color for selected and range days */
+  --rdp-range_start-date-background-color: var(--primary-color);
+  --rdp-range_middle-background-color: var(--primary-color);
+  --rdp-range_end-date-background-color: var(--primary-color);
+  background-color: var(--primary-color);
+  direction: rtl; /* Ensures right-to-left layout */
+}
+.rdp-day_selected {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+.rdp-day_today {
+  border: 1px solid #398573; /* Border color for today's date */
+}
 .rdp-day_range_start,
 .rdp-day_range_middle,
 .rdp-day_range_end {
-  background-color: var(--primary-color) !important;
+  background-color: var(--primary-color) !important; /* Range background */
+  color: var(--text-color); /* Text color for range days */
 }
+.rdp-day {
+  cursor: pointer; /* Make the days clickable */
+}
+.rdp-day_outside {
+  background-color: #f0f0f0;
+  color: #aaa;
+}
+
 /* calendar */
 .fc .fc-popover-header {
   color: black;
@@ -271,91 +289,59 @@ table .fc-scrollgrid {
 @keyframes mulShdSpin {
   0%,
   100% {
-    box-shadow:
-      0em -2.6em 0em 0em rgb(255, 255, 255),
-      1.8em -1.8em 0 0em rgb(255, 255, 255),
-      2.5em 0em 0 0em rgb(255, 255, 255),
-      1.75em 1.75em 0 0em rgb(255, 255, 255),
-      0em 2.5em 0 0em rgb(255, 255, 255),
-      -1.8em 1.8em 0 0em rgb(255, 255, 255),
-      -2.6em 0em 0 0em rgb(255, 255, 255),
+    box-shadow: 0em -2.6em 0em 0em rgb(255, 255, 255),
+      1.8em -1.8em 0 0em rgb(255, 255, 255), 2.5em 0em 0 0em rgb(255, 255, 255),
+      1.75em 1.75em 0 0em rgb(255, 255, 255), 0em 2.5em 0 0em rgb(255, 255, 255),
+      -1.8em 1.8em 0 0em rgb(255, 255, 255), -2.6em 0em 0 0em rgb(255, 255, 255),
       -1.8em -1.8em 0 0em rgb(255, 255, 255);
   }
   12.5% {
-    box-shadow:
-      0em -2.6em 0em 0em rgb(255, 255, 255),
-      1.8em -1.8em 0 0em rgb(255, 255, 255),
-      2.5em 0em 0 0em rgb(255, 255, 255),
-      1.75em 1.75em 0 0em rgb(255, 255, 255),
-      0em 2.5em 0 0em rgb(255, 255, 255),
-      -1.8em 1.8em 0 0em rgb(255, 255, 255),
-      -2.6em 0em 0 0em rgb(255, 255, 255),
+    box-shadow: 0em -2.6em 0em 0em rgb(255, 255, 255),
+      1.8em -1.8em 0 0em rgb(255, 255, 255), 2.5em 0em 0 0em rgb(255, 255, 255),
+      1.75em 1.75em 0 0em rgb(255, 255, 255), 0em 2.5em 0 0em rgb(255, 255, 255),
+      -1.8em 1.8em 0 0em rgb(255, 255, 255), -2.6em 0em 0 0em rgb(255, 255, 255),
       -1.8em -1.8em 0 0em rgb(255, 255, 255);
   }
   25% {
-    box-shadow:
-      0em -2.6em 0em 0em rgb(255, 255, 255),
-      1.8em -1.8em 0 0em rgb(255, 255, 255),
-      2.5em 0em 0 0em rgb(255, 255, 255),
-      1.75em 1.75em 0 0em rgb(255, 255, 255),
-      0em 2.5em 0 0em rgb(255, 255, 255),
-      -1.8em 1.8em 0 0em rgb(255, 255, 255),
-      -2.6em 0em 0 0em rgb(255, 255, 255),
+    box-shadow: 0em -2.6em 0em 0em rgb(255, 255, 255),
+      1.8em -1.8em 0 0em rgb(255, 255, 255), 2.5em 0em 0 0em rgb(255, 255, 255),
+      1.75em 1.75em 0 0em rgb(255, 255, 255), 0em 2.5em 0 0em rgb(255, 255, 255),
+      -1.8em 1.8em 0 0em rgb(255, 255, 255), -2.6em 0em 0 0em rgb(255, 255, 255),
       -1.8em -1.8em 0 0em rgb(255, 255, 255);
   }
   37.5% {
-    box-shadow:
-      0em -2.6em 0em 0em rgb(255, 255, 255),
-      1.8em -1.8em 0 0em rgb(255, 255, 255),
-      2.5em 0em 0 0em rgb(255, 255, 255),
-      1.75em 1.75em 0 0em rgb(255, 255, 255),
-      0em 2.5em 0 0em rgb(255, 255, 255),
-      -1.8em 1.8em 0 0em rgb(255, 255, 255),
-      -2.6em 0em 0 0em rgb(255, 255, 255),
+    box-shadow: 0em -2.6em 0em 0em rgb(255, 255, 255),
+      1.8em -1.8em 0 0em rgb(255, 255, 255), 2.5em 0em 0 0em rgb(255, 255, 255),
+      1.75em 1.75em 0 0em rgb(255, 255, 255), 0em 2.5em 0 0em rgb(255, 255, 255),
+      -1.8em 1.8em 0 0em rgb(255, 255, 255), -2.6em 0em 0 0em rgb(255, 255, 255),
       -1.8em -1.8em 0 0em rgb(255, 255, 255);
   }
   50% {
-    box-shadow:
-      0em -2.6em 0em 0em rgb(255, 255, 255),
-      1.8em -1.8em 0 0em rgb(255, 255, 255),
-      2.5em 0em 0 0em rgb(255, 255, 255),
-      1.75em 1.75em 0 0em rgb(255, 255, 255),
-      0em 2.5em 0 0em rgb(255, 255, 255),
-      -1.8em 1.8em 0 0em rgb(255, 255, 255),
-      -2.6em 0em 0 0em rgb(255, 255, 255),
+    box-shadow: 0em -2.6em 0em 0em rgb(255, 255, 255),
+      1.8em -1.8em 0 0em rgb(255, 255, 255), 2.5em 0em 0 0em rgb(255, 255, 255),
+      1.75em 1.75em 0 0em rgb(255, 255, 255), 0em 2.5em 0 0em rgb(255, 255, 255),
+      -1.8em 1.8em 0 0em rgb(255, 255, 255), -2.6em 0em 0 0em rgb(255, 255, 255),
       -1.8em -1.8em 0 0em rgb(255, 255, 255);
   }
   62.5% {
-    box-shadow:
-      0em -2.6em 0em 0em rgb(255, 255, 255),
-      1.8em -1.8em 0 0em rgb(255, 255, 255),
-      2.5em 0em 0 0em rgb(255, 255, 255),
-      1.75em 1.75em 0 0em rgb(255, 255, 255),
-      0em 2.5em 0 0em rgb(255, 255, 255),
-      -1.8em 1.8em 0 0em rgb(255, 255, 255),
-      -2.6em 0em 0 0em rgb(255, 255, 255),
+    box-shadow: 0em -2.6em 0em 0em rgb(255, 255, 255),
+      1.8em -1.8em 0 0em rgb(255, 255, 255), 2.5em 0em 0 0em rgb(255, 255, 255),
+      1.75em 1.75em 0 0em rgb(255, 255, 255), 0em 2.5em 0 0em rgb(255, 255, 255),
+      -1.8em 1.8em 0 0em rgb(255, 255, 255), -2.6em 0em 0 0em rgb(255, 255, 255),
       -1.8em -1.8em 0 0em rgb(255, 255, 255);
   }
   75% {
-    box-shadow:
-      0em -2.6em 0em 0em rgb(255, 255, 255),
-      1.8em -1.8em 0 0em rgb(255, 255, 255),
-      2.5em 0em 0 0em rgb(255, 255, 255),
-      1.75em 1.75em 0 0em rgb(255, 255, 255),
-      0em 2.5em 0 0em rgb(255, 255, 255),
-      -1.8em 1.8em 0 0em rgb(255, 255, 255),
-      -2.6em 0em 0 0em rgb(255, 255, 255),
+    box-shadow: 0em -2.6em 0em 0em rgb(255, 255, 255),
+      1.8em -1.8em 0 0em rgb(255, 255, 255), 2.5em 0em 0 0em rgb(255, 255, 255),
+      1.75em 1.75em 0 0em rgb(255, 255, 255), 0em 2.5em 0 0em rgb(255, 255, 255),
+      -1.8em 1.8em 0 0em rgb(255, 255, 255), -2.6em 0em 0 0em rgb(255, 255, 255),
       -1.8em -1.8em 0 0em rgb(255, 255, 255);
   }
   87.5% {
-    box-shadow:
-      0em -2.6em 0em 0em rgb(255, 255, 255),
-      1.8em -1.8em 0 0em rgb(255, 255, 255),
-      2.5em 0em 0 0em rgb(255, 255, 255),
-      1.75em 1.75em 0 0em rgb(255, 255, 255),
-      0em 2.5em 0 0em rgb(255, 255, 255),
-      -1.8em 1.8em 0 0em rgb(255, 255, 255),
-      -2.6em 0em 0 0em rgb(255, 255, 255),
+    box-shadow: 0em -2.6em 0em 0em rgb(255, 255, 255),
+      1.8em -1.8em 0 0em rgb(255, 255, 255), 2.5em 0em 0 0em rgb(255, 255, 255),
+      1.75em 1.75em 0 0em rgb(255, 255, 255), 0em 2.5em 0 0em rgb(255, 255, 255),
+      -1.8em 1.8em 0 0em rgb(255, 255, 255), -2.6em 0em 0 0em rgb(255, 255, 255),
       -1.8em -1.8em 0 0em rgb(255, 255, 255);
   }
 }
@@ -469,6 +455,3 @@ table .fc-scrollgrid {
   margin: auto;
   padding: 0px;
 }
-
-
-

@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import WizardStepper from "../../../../components/WizardStepper";
-import xicon from "@/assets/icons/xicon.svg";
-import cameraIcon from "@/assets/icons/camera.svg";
+import Xicon from "@/assets/icons/xicon.svg";
+import CameraIcon from "@/assets/icons/camera.svg";
 import FormInput from "../../../../components/FormInput";
 import FormTextArea from "../../../../components/FormTextArea";
 import SelectOption from "../../../../components/SelectOption";
@@ -17,6 +17,8 @@ import {
 } from "../../../../constant/constant";
 import Input from "../../../../components/Input";
 import { redirect } from "next/navigation";
+import "react-day-picker/dist/style.css";
+import "@/app/globals.css";
 
 const crafts = [
   { id: 1, name: "نجار" },
@@ -37,7 +39,7 @@ const Page = () => {
   const governorates = useCallback(getGovernorates, []);
   console.log(date);
   return (
-    <div>
+    <div className="">
       <WizardStepper onSubmit={() => redirect("client/new-job")}>
         <WizardStepper.StepList>
           <WizardStepper.Step
@@ -114,7 +116,7 @@ const Page = () => {
                   >
                     <div className="flex h-full w-full items-center justify-center">
                       <span className="flex aspect-square h-16 items-center justify-center rounded-full bg-primary-color">
-                        <Image src={cameraIcon} height={15} width={15} />
+                        <CameraIcon className=" w-4 h-4 text-text-color" />
                       </span>
                     </div>
                     <input
@@ -157,7 +159,7 @@ const Page = () => {
                           );
                         }}
                       >
-                        <Image src={xicon} height={15} />
+                        <Xicon className="w-4 h-4 text-text-color" />
                       </span>
                     </div>
                   ))}
@@ -180,14 +182,14 @@ const Page = () => {
               <DayPicker
                 style={{ margin: 0 }}
                 showOutsideDays
-                locale={ar}
-                dir="rtl"
-                fromDate={""}
-                weekStartsOn={6}
-                mode="range"
-                onSelect={setDate}
-                selected={date}
-                disabled={{ before: new Date() }}
+                locale={ar} // Set Arabic locale
+                dir="rtl" // Right-to-left support
+                fromDate={new Date()} // Set starting date (ensure it's a Date object)
+                weekStartsOn={6} // Start the week on Saturday (1 for Sunday, 6 for Saturday)
+                mode="range" // Enable range selection
+                onSelect={setDate} // Handle selection
+                selected={date} // Pass the selected date(s)
+                disabled={{ before: new Date() }} // Disable past dates
               />
             </div>
           </WizardStepper.Step>

@@ -114,7 +114,7 @@ function Step({
   const { currentStep, totalSteps, next } = useStepper();
   if (!isActive) return;
   return (
-    <div className="container relative grid h-full w-full grid-rows-[1fr,8rem] overflow-y-auto overflow-x-hidden">
+    <div className="custom-container relative grid h-full w-full grid-rows-[1fr_8rem] overflow-y-auto overflow-x-hidden">
       {isLoading && (
         <div className=" absolute left-0 top-0 h-fit w-full">
           <LineLoader />
@@ -123,7 +123,7 @@ function Step({
       <div className="h-full w-full ">{children}</div>
       <div
         style={{ filter: "drop-shadow(rgba(0,0,0,0.3) 0px 0px 6px)" }}
-        className=" container fixed bottom-0 flex h-24 w-full items-center justify-between border-t border-primary-color/50 bg-secondary-background"
+        className=" custom-container fixed bottom-0 flex h-24 w-full items-center justify-between border-t border-primary-color/50 bg-secondary-background"
       >
         <Previous disabled={isLoading} />
         {totalSteps != currentStep ? (
