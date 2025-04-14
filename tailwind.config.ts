@@ -9,14 +9,14 @@ export default {
       fontFamily: {},
       extend: {
         colors: {
-          "text-color": "rgb(var(--text-color) / <alpha-value>)",
-          "secondary-text": "rgb(var(--secondary-text) / <alpha-value>)",
-          "gray": "rgb(var(--gray) / <alpha-value>)",
-          "primary-color": "rgb(var(--primary-color) / <alpha-value>)",
-          "primary-background": "rgb(var(--primary-background) / <alpha-value>)",
-          "secondary-background": "rgb(var(--secondary-background) / <alpha-value>)",
-          "warning-color": "rgb(var(--warning-color) / <alpha-value>)",
-          "success-color": "rgb(var(--success-color) / <alpha-value>)",
+          "text-color": "var(--color-text-color) / <alpha-value>",
+          "secondary-text": "var(--color-secondary-text) / <alpha-value>",
+          "gray": "var(--color-gray) / <alpha-value>",
+          "primary-color": "var(--color-primary-color) / <alpha-value>",
+          "primary-background": "var(--color-primary-background) / <alpha-value>",
+          "secondary-background": "var(--color-secondary-background) / <alpha-value>",
+          "warning-color": "var(--color-warning-color) / <alpha-value>",
+          "success-color": "var(--color-success-color) / <alpha-value>",
         },
         fontSize: {
           "h1": "var(--text-heading1)",

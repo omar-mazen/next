@@ -5,11 +5,14 @@ import illustration from "./login-illustration.svg";
 import Link from "next/link";
 import facebookIcon from "../../../assets/facebook.svg";
 import googleIcon from "../../../assets/icons8-google.svg";
+import workerIcon from "../../../assets/icons/worker.svg";
+import clientIcon from "../../../assets/icons/client.svg";
+import check from "../../../assets/icons/check.svg";
 
 const Page = () => {
   const userTypeString: "handyman" | "client" = "client";
   return (
-    <div className="min-h-screen bg-primary-color text-text-color flex items-center justify-center p-4">
+    <div className="min-h-screen bg-secondary-background text-text-color flex items-center justify-center p-4">
       <Head>
         <title>Login Page</title>
         <meta name="description" content="Login page" />
@@ -117,7 +120,7 @@ const Page = () => {
 
 export default Page;
 
-const UserType = ({ icon, isActive, text }) => {
+const UserType = ({ icon, isActive, text }:{icon:any,isActive:boolean,text:string}) => {
   return (
     <div
       className={`relative flex flex-1 cursor-pointer items-center justify-evenly rounded-lg border p-4 hover:backdrop-brightness-150 hover:transition-all hover:duration-200  hover:ease-in-out ${
