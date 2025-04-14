@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import WizardStepper from "../../../../components/WizardStepper";
 import Xicon from "@/assets/icons/xicon.svg";
 import CameraIcon from "@/assets/icons/camera.svg";
@@ -17,8 +16,6 @@ import {
 } from "../../../../constant/constant";
 import Input from "../../../../components/Input";
 import { redirect } from "next/navigation";
-import "react-day-picker/dist/style.css";
-import "@/app/globals.css";
 
 const crafts = [
   { id: 1, name: "نجار" },
@@ -180,16 +177,23 @@ const Page = () => {
                 المهمة.
               </p>
               <DayPicker
-                style={{ margin: 0 }}
                 showOutsideDays
-                locale={ar} // Set Arabic locale
-                dir="rtl" // Right-to-left support
-                fromDate={new Date()} // Set starting date (ensure it's a Date object)
-                weekStartsOn={6} // Start the week on Saturday (1 for Sunday, 6 for Saturday)
-                mode="range" // Enable range selection
-                onSelect={setDate} // Handle selection
-                selected={date} // Pass the selected date(s)
+                locale={ar} // Arabic locale
+                dir="rtl" // Right-to-left
+                fromDate={new Date()} // Start from today
+                weekStartsOn={6} // Start week on Saturday
+                mode="range" // Range selection
+                onSelect={setDate} // Update state on selection
+                selected={date} // Selected date(s)
                 disabled={{ before: new Date() }} // Disable past dates
+                classNames={{
+                  range_start: "bg-primary-color rounded-r-full", // Start of range
+                  range_middle: "bg-primary-color", // Middle of range
+                  range_end:
+                    "bg-primary-color text-white rounded-l-full border-0", // End of range
+                  disabled: "opacity-50 cursor-not-allowed", // Disabled days
+                  today: " text-text-color",
+                }}
               />
             </div>
           </WizardStepper.Step>
@@ -198,7 +202,7 @@ const Page = () => {
               address.city && address.gov && address.st && getValues("phone")
             }
           >
-            <div className="mx-auto my-10 grid w-fit max-w-[600px] grid-cols-1 justify-items-start gap-10 ">
+            <div className="mx-auto my-10 grid w-fit max-w-[600px] grid-cols-1 justify-items-start gap-10  ">
               <div>
                 <p className=" mb-5 justify-self-start text-large">اضف عنوان</p>
                 <p className=" mb-10 justify-self-start text-small text-gray">
@@ -206,6 +210,7 @@ const Page = () => {
                 </p>
                 <div className="grid grid-cols-2 grid-rows-2 gap-5 sm:grid-cols-3 sm:grid-rows-1">
                   <SelectOption
+                    full={true}
                     selectedValue={address.gov}
                     setSelectedValue={(gov) =>
                       setAddress((state) => {
@@ -216,6 +221,7 @@ const Page = () => {
                     options={governorates}
                   />
                   <SelectOption
+                    full={true}
                     selectedValue={address.city}
                     setSelectedValue={(city) =>
                       setAddress((state) => {

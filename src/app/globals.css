@@ -1,3 +1,4 @@
+@import "react-day-picker/style.css";
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -42,7 +43,12 @@
     --color-success-color: rgb(70, 180, 50);
   }
 }
-
+.rdp-day_button {
+  border-color: transparent !important;
+}
+.rdp-chevron {
+  fill: rgb(220, 38, 38) !important;
+}
 h1 {
   font-size: var(--typography-heading1);
 }
@@ -134,36 +140,6 @@ img:after {
 ::-webkit-scrollbar-thumb {
   background-color: var(--color-gray);
   border-radius: 5px;
-}
-.rdp-root {
-  --rdp-accent-color: var(
-    --text-color
-  ); /* Text color for selected and range days */
-  --rdp-range_start-date-background-color: var(--primary-color);
-  --rdp-range_middle-background-color: var(--primary-color);
-  --rdp-range_end-date-background-color: var(--primary-color);
-  background-color: var(--primary-color);
-  direction: rtl; /* Ensures right-to-left layout */
-}
-.rdp-day_selected {
-  background-color: var(--primary-color);
-  color: var(--text-color);
-}
-.rdp-day_today {
-  border: 1px solid #398573; /* Border color for today's date */
-}
-.rdp-day_range_start,
-.rdp-day_range_middle,
-.rdp-day_range_end {
-  background-color: var(--primary-color) !important; /* Range background */
-  color: var(--text-color); /* Text color for range days */
-}
-.rdp-day {
-  cursor: pointer; /* Make the days clickable */
-}
-.rdp-day_outside {
-  background-color: #f0f0f0;
-  color: #aaa;
 }
 
 /* calendar */
