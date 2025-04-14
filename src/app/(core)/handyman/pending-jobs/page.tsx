@@ -1,6 +1,10 @@
 import CraftsmanListJob from "@/components/CraftsmanListJob";
 import Pagination from "@/components/Pagination";
-import { NextPage } from "next";
+import { NextPage, Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "المهام المعلقة",
+};
 
 const jobsArray = [
     {

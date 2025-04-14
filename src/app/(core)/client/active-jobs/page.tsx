@@ -2,6 +2,11 @@ import Table from "@/components/Table";
 import Link from "next/link";
 import { formatISO } from "date-fns";
 import Pagination from "@/components/Pagination";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "المهام النشطة",
+};
 
 const data = {
     data: [
