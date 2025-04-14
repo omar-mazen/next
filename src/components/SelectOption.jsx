@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ArrowDropUpIcon from "../assets/icons/arrow-drop-up.svg";
-import searchIcon from "../assets/icons/search.svg";
+import SearchIcon from "../assets/icons/search.svg";
 import useClickOutside from "../hooks/useClickOutside";
 import Image from "next/image";
 
@@ -40,8 +40,8 @@ export default function SelectOption({
         >
           {selectedValue || label}
         </span>
-        <span className={`${isOpen ? "rotate-180" : ""} opacity-75`}>
-          <Image src={ArrowDropUpIcon} height={15} />
+        <span className={`${isOpen ? "" : "rotate-180"} opacity-75`}>
+          <ArrowDropUpIcon className="w-6 h-6 text-text-color" />
         </span>
       </div>
       {isOpen && (
@@ -55,8 +55,8 @@ export default function SelectOption({
                 value={searchString}
                 onChange={(e) => setSearchString(e.target.value)}
               />
-              <span className=" absolute left-6 top-1/2 translate-x-[-50%] translate-y-[-50%] ">
-                <Image src={searchIcon} width={13} />
+              <span className=" absolute left-8 top-1/2 translate-x-[-50%] translate-y-[-50%] ">
+                <SearchIcon className="w-4 h-4 text-text-color" />
               </span>
             </div>
           )}
