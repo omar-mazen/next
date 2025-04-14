@@ -146,24 +146,24 @@ img:after {
 .rdp-day_range_start,
 .rdp-day_range_middle,
 .rdp-day_range_end {
-  background-color: var(--primary-color) !important;
+  background-color: var(--color-primary-color) !important;
 }
 /* calendar */
 .fc .fc-popover-header {
   color: black;
 }
 .fc .fc-button-primary {
-  background-color: var(--primary-color) !important ;
+  background-color: var(--color-primary-color) !important ;
 }
 .fc .fc-day-today {
-  background-color: var(--secondary-background) !important ;
+  background-color: var(--color-secondary-background) !important ;
 }
 
 .fc-theme-standard th {
   border-top: 0 !important;
-  border-bottom: 1px solid var(--text-color) !important;
-  border-right: 1px solid var(--text-color) !important;
-  border-left: 1px solid var(--text-color) !important;
+  border-bottom: 1px solid var(--color-text-color) !important;
+  border-right: 1px solid var(--color-text-color) !important;
+  border-left: 1px solid var(--color-text-color) !important;
 }
 .fc-theme-standard th:first-of-type {
   border-right: 0px !important;
@@ -182,7 +182,7 @@ div.fc-view-harness.fc-view-harness-passive > div > table > tbody > tr > td {
 
 div.fc-view-harness.fc-view-harness-passive {
   overflow-x: scroll;
-  border: 1px solid var(--text-color) !important;
+  border: 1px solid var(--color-text-color) !important;
   border-radius: 5px;
 }
 #fc-dom-146 > div.fc-popover-body {
@@ -190,8 +190,8 @@ div.fc-view-harness.fc-view-harness-passive {
 }
 .fc-theme-standard td {
   border: 0 !important;
-  border-bottom: 1px solid var(--text-color), 0.2 !important;
-  border-right: 1px solid var(--text-color), 0.2 !important;
+  border-bottom: 1px solid var(--color-text-color), 0.2 !important;
+  border-right: 1px solid var(--color-text-color), 0.2 !important;
 }
 .fc-theme-standard td:first-of-type {
   border-right: 0px !important;
@@ -249,7 +249,7 @@ table .fc-scrollgrid {
 }
 .fc-view-harness.fc-view-harness-passive {
   overflow-x: scroll;
-  border: 1px solid var(--text-color), 0.2 !important;
+  border: 1px solid var(--color-text-color), 0.2 !important;
   border-radius: 5px;
 }
 #fc-dom-148 {
@@ -376,7 +376,7 @@ table .fc-scrollgrid {
   left: -50%;
   height: 3px;
   width: 40%;
-  background-color: var(--primary-color);
+  background-color: var(--color-primary-color);
   -webkit-animation: lineAnim 1s linear infinite;
   -moz-animation: lineAnim 1s linear infinite;
   animation: lineAnim 1s linear infinite;
@@ -429,7 +429,7 @@ table .fc-scrollgrid {
   left: 0;
   height: 100dvh;
   width: 100%;
-  background: rgb(var(--primary-background));
+  background: var(--color-primary-background);
   z-index: 9999999999999999999999999999999;
 }
 .rays:after,
@@ -443,7 +443,7 @@ table .fc-scrollgrid {
 .rays:after {
   -webkit-animation: rays 1.5s infinite;
   animation: rays 1.5s infinite;
-  border: 10px solid rgb(var(--primary-color));
+  border: 10px solid var(--color-primary-color);
   height: 200px;
   width: 200px;
   z-index: 1;
