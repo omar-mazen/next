@@ -3,8 +3,8 @@
 import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import useWindowSize from "@/hooks/components/useWindowResize";
-import ArrowRightIcon from "@/icons/ArrowRightIcon";
-import ArrowLeftIcon from "@/icons/ArrowLeftIcon";
+import ArrowRightIcon from "@/assets/icons/arrow-right.svg";
+import ArrowLeftIcon from "@/assets/icons/arrow-left.svg";
 
 type PaginationProps = {
     total: number;
@@ -20,7 +20,6 @@ export default function Pagination({ total }: PaginationProps) {
     const searchParams = useSearchParams();
     const currPage = Number(searchParams.get("page")) || 1;
 
-    // Calculate how many pages can fit in the container
     useEffect(() => {
         if (containerRef.current && pageRef.current) {
             const containerWidth =
@@ -32,7 +31,6 @@ export default function Pagination({ total }: PaginationProps) {
         }
     }, [size, containerRef.current, pageRef.current]);
 
-    // Set page using Next.js router
     function setPage(page: number) {
         if (page < 1 || page > total) return;
 
@@ -52,7 +50,7 @@ export default function Pagination({ total }: PaginationProps) {
                         : ""
                 }`}
             >
-                <ArrowRightIcon />
+                <ArrowRightIcon className="w-6 h-6" />
             </span>
 
             <ul
@@ -88,7 +86,7 @@ export default function Pagination({ total }: PaginationProps) {
                         : ""
                 }`}
             >
-                <ArrowLeftIcon />
+                <ArrowLeftIcon className="w-6 h-6" />
             </span>
         </div>
     );
