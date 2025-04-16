@@ -1,13 +1,14 @@
 import Head from "next/head";
 import Image from "next/image";
 import { FaGoogle, FaFacebook, FaUser, FaLock } from "react-icons/fa";
-import illustration from "./login-illustration.svg";
+import Illustration from "../../../assets/login-img.svg";
 import Link from "next/link";
-import facebookIcon from "../../../assets/facebook.svg";
-import googleIcon from "../../../assets/icons8-google.svg";
-import workerIcon from "../../../assets/icons/worker.svg";
-import clientIcon from "../../../assets/icons/client.svg";
-import check from "../../../assets/icons/check.svg";
+import FacebookIcon from "../../../assets/facebook.svg";
+import GoogleIcon from "../../../assets/icons8-google.svg";
+import WorkerIcon from "../../../assets/icons/worker.svg";
+import ClientIcon from "../../../assets/icons/client.svg";
+import Check from "../../../assets/icons/check.svg";
+import { ReactNode } from "react";
 
 const Page = () => {
   const userTypeString: "handyman" | "client" = "client";
@@ -45,16 +46,23 @@ const Page = () => {
             </div>
 
             <div className="mb-8 flex w-full items-center justify-around gap-8">
+
               <UserType
-                icon={workerIcon}
                 isActive={userTypeString == "client"}
                 text={"حرفي"}
-              />
+              >
+                <div>
+                  <WorkerIcon className="w-[50px] h-[40px]" />
+                </div>
+                  
+                </UserType>
+
               <UserType
-                icon={clientIcon}
                 isActive={userTypeString != "client"}
                 text={"عميل"}
-              />
+              >
+                <ClientIcon className="w-[50px] h-[40px]"/>
+              </UserType>
             </div>
 
             <button
@@ -83,7 +91,7 @@ const Page = () => {
               className="w-full flex items-center justify-evenly bg-transparent border border-gray-700 text-white py-3 rounded-4xl font-bold transition-colors"
             >
               <span>تسجيل الدخول باستخدام حساب Google</span>
-              <Image src={googleIcon} width={40} alt="google icno" />
+             <GoogleIcon className="w-[50px]"/>
             </button>
 
             <button
@@ -91,7 +99,7 @@ const Page = () => {
               className="w-full flex items-center justify-evenly bg-transparent border border-gray-700 text-white py-3 rounded-4xl font-bold transition-colors"
             >
               <span>تسجيل الدخول باستخدام حساب Facebook</span>
-              <Image src={facebookIcon} width={40} alt="facebook icon" />
+              <FacebookIcon className="w-[50px]"/>
             </button>
 
             <div className="text-center mt-6">
@@ -104,13 +112,14 @@ const Page = () => {
         </div>
         <div className="hidden md:flex md:w-1/2 justify-center items-center">
           <div className="relative w-full max-w-md h-[800px]">
-            <Image
+           {/*  <Image
               src={illustration}
               alt="Login Illustration"
               layout="fill"
               objectFit="contain"
               priority
-            />
+            /> */}
+            <Illustration className="W-[500px] h-[500px]"/>
           </div>
         </div>
       </div>
@@ -120,7 +129,7 @@ const Page = () => {
 
 export default Page;
 
-const UserType = ({ icon, isActive, text }:{icon:any,isActive:boolean,text:string}) => {
+const UserType = ({ children, isActive, text }:{children:ReactNode,isActive:boolean,text:string}) => {
   return (
     <div
       className={`relative flex flex-1 cursor-pointer items-center justify-evenly rounded-lg border p-4 hover:backdrop-brightness-150 hover:transition-all hover:duration-200  hover:ease-in-out ${
@@ -129,13 +138,14 @@ const UserType = ({ icon, isActive, text }:{icon:any,isActive:boolean,text:strin
           : "border-text-color/5 bg-text-color/10"
       }`}
     >
-      <Image src={icon} height={40} alt="icon" />
+      
+      {children}
       <span
         className={`${
           isActive ? "" : " hidden"
         } absolute bottom-0 left-0 translate-x-[-50%] translate-y-[50%] rounded-full bg-white text-primary-color`}
       >
-        <Image src={check} alt="check icon" width={15} height={15} />
+        <Check className="w-[18px] h-[18px]"/>
       </span>
       <p className="text-center text-large font-semibold">{text}</p>
     </div>
