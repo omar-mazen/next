@@ -2,15 +2,15 @@
 
 import React from "react";
 import { formatDate, formatISO } from "date-fns";
-import MoreInfoIcon from "@/icons/MoreInfoIcon";
-import ThreeDots from "@/icons/ThreeDots";
+import MoreInfoIcon from "@/assets/icons/more-info.svg";
+import ThreeDotsIcon from "@/assets/icons/three-dots.svg";
+import TrashIcon from "@/assets/icons/trash.svg";
 import ConfirmDelete from "@/components/ConfirmDelete";
 import FullPageLoading from "@/components/FullPageLoading";
 import Menu from "@/components/Menu";
 import Modal from "@/components/Modal";
 import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
-import TrashIcon from "@/icons/TrashIcon";
 import useGetAllJobOffers from "@/hooks/client/useGetAllJobOffers";
 import useDeleteJobOffer from "@/hooks/client/useDeleteJobOffer";
 import Link from "next/link";
@@ -110,7 +110,7 @@ export default function JobOffers() {
                                                 <Menu.Toggle
                                                     name={`opens-${offer?.id}`}
                                                 >
-                                                    <ThreeDots />
+                                                    <ThreeDotsIcon className="w-6 h-6" />
                                                 </Menu.Toggle>
                                             </Table.Cell>
                                         </Table.Row>
@@ -120,7 +120,7 @@ export default function JobOffers() {
                                             >
                                                 <Menu.Item
                                                     icon={
-                                                        <TrashIcon size={20} />
+                                                        <TrashIcon className="w-6 h-6" />
                                                     }
                                                 >
                                                     حذف
@@ -133,7 +133,7 @@ export default function JobOffers() {
                                                     )
                                                 }
                                                 icon={
-                                                    <MoreInfoIcon size={20} />
+                                                    <MoreInfoIcon className="w-6 h-6" />
                                                 }
                                             >
                                                 المزيد
