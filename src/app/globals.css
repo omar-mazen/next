@@ -18,13 +18,13 @@
   --color-warning-color: rgb(252, 211, 77);
   --color-success-color: rgb(34, 197, 94);
 
-  --typography-heading1: clamp(24px, 5vw, 34px);
-  --typography-heading2: clamp(18px, 4vw, 24px);
-  --typography-heading3: clamp(16px, 3.5vw, 18px);
-  --typography-xsmall-text: clamp(10px, 1.5vw, 12px);
-  --typography-small-text: clamp(11px, 2vw, 14px);
-  --typography-medium-text: clamp(5px, 2.5vw, 16px);
-  --typography-large-text: clamp(16px, 3vw, 18px);
+  --text-h1: clamp(24px, 5vw, 34px);
+  --text-h2: clamp(18px, 4vw, 24px);
+  --text-h3: clamp(16px, 3.5vw, 18px);
+  --text-xsmall: clamp(10px, 1.5vw, 12px);
+  --text-small: clamp(11px, 2vw, 14px);
+  --text-medium: clamp(5px, 2.5vw, 16px);
+  --text-large: clamp(16px, 3vw, 18px);
 }
 @layer base {
   input[type="number"]::-webkit-inner-spin-button,
@@ -436,4 +436,3 @@ table .fc-scrollgrid {
   margin: auto;
   padding: 0px;
 }
-
