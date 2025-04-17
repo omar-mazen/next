@@ -9,7 +9,7 @@ import {
   FaEnvelope,
   FaLock,
 } from "react-icons/fa";
-import illustration from "./sign-up-animate.svg";
+import Illustration from "../../../assets/Signup-img.svg";
 const SignUp = () => {
   let showPassword = false;
   return (
@@ -121,13 +121,14 @@ const SignUp = () => {
         <div className="hidden md:flex md:w-1/2 justify-center items-center">
           <div className="relative w-full max-w-md">
             <div className="relative z-10 p-6">
-              <Image
+            {/*   <Image
                 src={illustration}
                 alt="Sign up illustration"
                 width={500}
                 height={500}
                 className="object-contain"
-              />
+              /> */}
+              <Illustration className="w-[500px] h-[500px]"/>
             </div>
           </div>
         </div>
